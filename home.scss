@@ -1,5 +1,7 @@
 $font-stack: Arial;
 $primary-color: #ffffff;
+$secondary-color: #6362a7;
+$descriptionColor: #333333;
 
 :root {
   font-size: 16px;
@@ -7,7 +9,17 @@ $primary-color: #ffffff;
 
 body {
   font-family: $font-stack;
+  box-sizing: border-box;
+
+  button:focus {
+    outline: none;
+  }
+
+  p {
+    margin: 0;
+  }
 }
+
 
 .navbar {
   background-image: url("https://images.unsplash.com/photo-1504333638930-c8787321eee0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80");
@@ -27,8 +39,82 @@ body {
     font-weight: bold;
     letter-spacing: -0.04875rem;
   }
-  
+
   .nav-link {
     color: $primary-color;
+  }
+}
+
+.main-area {
+  .slider-container {
+    width: 100%;
+    padding: 5rem 2rem;
+
+    .slider-btn {
+      min-width: 5.5rem;
+      height: 5.5rem;
+      background-color: $secondary-color;
+      color: $primary-color;
+      border-radius: 50%;
+      border: none;
+    }
+
+    img {
+      min-width: 45rem;
+      height: 25rem;
+    }
+
+    .rectangle-details-container {
+      width: 17.5rem;
+      min-width: 17rem;
+      border: 8px solid #8f8ec7;
+      height: 25rem;
+
+      .rectangle-details-container-top {
+        color: $descriptionColor;
+        padding: 0.7rem 1.5rem;
+
+        .rectangle-details-title {
+          color: #000000;
+          font-size: 1.8rem;
+          font-weight: bold;
+          margin-bottom: 0.5rem;
+        }
+
+        .rectangle-details-text {
+          line-height: 1.4rem;
+
+          p:last-child {
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+          }
+        }
+      }
+
+      .rectangle-details-container-bottom {
+        background-color: $secondary-color;
+        color: $primary-color;
+        padding: 1rem;
+        line-height: 2rem;
+
+        .rectangle-details-price {
+          font-size: 2.3rem;
+          font-weight: bold;
+          margin-bottom: 0;
+        }
+
+        .rectangle-details-btn {
+          border-radius: 3px;
+          border: none;
+          box-shadow: 0px 3px 7px 0 rgba(0, 0, 0, 0.35);
+          background-color: #ffce22;
+          color: $descriptionColor;
+          width: 8rem;
+          height: 2.5rem;
+          font-weight: bold;
+          font-size: 1.3rem;
+        }
+      }
+    }
   }
 }
