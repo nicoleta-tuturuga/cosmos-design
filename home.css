@@ -1,0 +1,30 @@
+:root {
+  font-size: 16px;
+}
+
+body {
+  font-family: Arial;
+}
+
+.navbar {
+  background-image: url("https://images.unsplash.com/photo-1504333638930-c8787321eee0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80");
+  color: #ffffff;
+}
+.navbar .navbar-brand {
+  color: #ffffff;
+  margin-left: 0.6rem;
+  margin-right: 6rem;
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: -0.1125rem;
+}
+.navbar .nav-item {
+  margin-right: 2rem;
+  font-weight: bold;
+  letter-spacing: -0.04875rem;
+}
+.navbar .nav-link {
+  color: #ffffff;
+}
+
+/*# sourceMappingURL=home.css.map */
