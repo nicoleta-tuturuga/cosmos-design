@@ -3,6 +3,22 @@ $primary-color: #ffffff;
 $secondary-color: #6362a7;
 $descriptionColor: #333333;
 
+@mixin orderBtn {
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0px 3px 7px 0 rgba(0, 0, 0, 0.35);
+  background-color: #ffce22;
+  color: $descriptionColor;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+@mixin p-header-content-style {
+  font-size: 2rem;
+  color: $primary-color;
+  font-weight: bold;
+}
+
 :root {
   font-size: 16px;
 }
@@ -19,7 +35,6 @@ body {
     margin: 0;
   }
 }
-
 
 .navbar {
   background-image: url("https://images.unsplash.com/photo-1504333638930-c8787321eee0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80");
@@ -104,16 +119,76 @@ body {
         }
 
         .rectangle-details-btn {
-          border-radius: 3px;
-          border: none;
-          box-shadow: 0px 3px 7px 0 rgba(0, 0, 0, 0.35);
-          background-color: #ffce22;
-          color: $descriptionColor;
           width: 8rem;
           height: 2.5rem;
-          font-weight: bold;
-          font-size: 1.3rem;
+          @include orderBtn;
         }
+      }
+    }
+  }
+
+  .page-content-container {
+    .page-content-header {
+      background-color: $secondary-color;
+      padding: 3rem;
+
+      .page-content-header-list {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+
+        .page-content-header-list-item {
+          margin-left: 4rem;
+          margin-right: 4rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          > i {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+          }
+
+          .fa-suitcase {
+            color: #f5b944;
+          }
+
+          .fa-rocket {
+            color: #6af1d0;
+          }
+
+          .fa-leaf {
+            color: #c6f16a;
+          }
+
+          .content-style {
+            @include p-header-content-style;
+          }
+        }
+      }
+    }
+
+    > p {
+      @include p-header-content-style;
+      background-color: #8f8ec7;
+      padding: 1rem 10rem;
+    }
+
+    .product-description-container {
+      color: $descriptionColor;
+      width: 62rem;
+      height: 25rem;
+      padding: 5rem 10rem;
+
+      .spacer {
+        height: 1rem;
+      }
+
+      .product-description-btn {
+        margin: 5rem 0;
+        width: 13.5rem;
+        height: 3.5rem;
+        @include orderBtn;
       }
     }
   }
