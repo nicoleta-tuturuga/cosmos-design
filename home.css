@@ -139,7 +139,7 @@ body p {
 .main-area .page-content-container .product-description-container {
   color: #333333;
   width: 62rem;
-  height: 25rem;
+  height: 41rem;
   padding: 5rem 10rem;
 }
 .main-area .page-content-container .product-description-container .spacer {
@@ -156,6 +156,13 @@ body p {
   color: #333333;
   font-weight: bold;
   font-size: 1.3rem;
+}
+
+.footer {
+  background-color: #333333;
+  padding: 2rem 3rem;
+  color: #ffffff;
+  font-size: 0.8rem;
 }
 
 /*# sourceMappingURL=home.css.map */
