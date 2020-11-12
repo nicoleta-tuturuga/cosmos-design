@@ -1,41 +1,12 @@
-const data = [
-  {
-    "id": 1,
-    "img": "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1087&q=80",
-    "planetTitle": "ENCELADUS",
-    "belongsTo": "The Saturn System",
-    "distance": "9.5 AU",
-    "population": "3920",
-    "text1": "is the sixth-largest moon of Saturn. It is about a tenth of Saturn's largest moon, Titan.",
-    "text2": "Explore this amazing cosmic marvel in a safe and fast trip with our aerospace company.",
-    "ticketPrice": "999.990 €",
-    "ticketDetails": "one way ticket"
-  },
-  {
-    "id": 2,
-    "img": "https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
-    "planetTitle": "STARS",
-    "belongsTo": "The Stars",
-    "distance": "150 AU",
-    "population": "5000",
-    "text1": "is the sixth-largest moon of Saturn. It is about a tenth of Saturn's largest moon, Titan.",
-    "text2": "Explore this amazing cosmic marvel in a safe and fast trip with our aerospace company.",
-    "ticketPrice": "799.130 €",
-    "ticketDetails": "one way ticket"
-  },
-  {
-    "id": 3,
-    "img": "https://images.unsplash.com/photo-1548284706-24b96b23d6d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
-    "planetTitle": "MOON",
-    "belongsTo": "The Moon",
-    "distance": "50 AU",
-    "population": "0",
-    "text1": "is the sixth-largest moon of Saturn. It is about a tenth of Saturn's largest moon, Titan.",
-    "text2": "Explore this amazing cosmic marvel in a safe and fast trip with our aerospace company.",
-    "ticketPrice": "199.160 €",
-    "ticketDetails": "two way ticket"
-  }
-]
+function getDataFromServer() {
+  fetch('https://run.mocky.io/v3/37abd45d-62fe-493f-92c6-d799b162a201')
+  .then(getResponse)
+  .then(showData)
+}
+
+function getResponse(response) {
+  return response.json();
+}
 
 function showData(data) {
   for (var i = 0; i < data.length; i++) {
@@ -156,7 +127,7 @@ function switchDarkMode() {
 
 $(document).ready(function () {
 
-  showData(data);
+  getDataFromServer();
 
   $('.slider-btn-right').click(showNextSlide);
   $('.slider-btn-left').click(showPreviuosSlide);
