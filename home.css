@@ -44,6 +44,7 @@ body p {
   font-size: 2rem;
   font-weight: bold;
   letter-spacing: -0.1125rem;
+  animation: pulse 5s infinite;
 }
 .page-container .navbar .navbar-brand span {
   font-weight: normal;
@@ -73,14 +74,25 @@ body p {
   background-color: transparent;
   position: absolute;
   top: 6rem;
-  right: 0rem;
-  height: 3rem;
-  width: 3rem;
+  right: 0.5rem;
   cursor: pointer;
   border: none;
+  height: 3rem;
+  width: 3rem;
+}
+@media only screen and (min-width: 768px) {
+  .page-container .main-area .dark-mode-btn {
+    top: 5.5rem;
+    right: 2rem;
+    height: 4rem;
+    width: 4rem;
+  }
+}
+.page-container .main-area .dark-mode-btn .hidden {
+  display: none;
 }
 .page-container .main-area .slider-container {
-  width: 100%;
+  min-width: 24rem;
   padding: 3rem 0.5rem;
 }
 @media only screen and (min-width: 768px) {
@@ -107,6 +119,7 @@ body p {
   }
 }
 .page-container .main-area .slider-container .slider-btn-left:after, .page-container .main-area .slider-container .slider-btn-left:before {
+  top: 50%;
   border: solid transparent;
   content: "";
   height: 0;
@@ -208,6 +221,10 @@ body p {
   height: 17.7rem;
   position: relative;
 }
+.page-container .main-area .slider-container .slider-content-wrapper .slider-wrapper .rectangle-details-container:hover {
+  transform: scale(1.06);
+  cursor: pointer;
+}
 @media only screen and (min-width: 1024px) {
   .page-container .main-area .slider-container .slider-content-wrapper .slider-wrapper .rectangle-details-container {
     width: 17.5rem;
@@ -217,8 +234,8 @@ body p {
   }
 }
 .page-container .main-area .slider-container .slider-content-wrapper .slider-wrapper .rectangle-details-container:after, .page-container .main-area .slider-container .slider-content-wrapper .slider-wrapper .rectangle-details-container:before {
-  bottom: 100%;
-  left: 50%;
+  right: 100%;
+  top: 50%;
   border: solid transparent;
   content: "";
   height: 0;
@@ -227,7 +244,7 @@ body p {
   pointer-events: none;
 }
 .page-container .main-area .slider-container .slider-content-wrapper .slider-wrapper .rectangle-details-container:after {
-  border-bottom-color: #ffffff;
+  border-right-color: #ffffff;
   border-width: 5px;
   margin-top: -5px;
 }
@@ -238,7 +255,7 @@ body p {
   }
 }
 .page-container .main-area .slider-container .slider-content-wrapper .slider-wrapper .rectangle-details-container:before {
-  border-bottom-color: #8f8ec7;
+  border-right-color: #8f8ec7;
   border-width: 11px;
   margin-top: -11px;
 }
@@ -370,6 +387,7 @@ body p {
   }
 }
 .page-container .main-area .slider-container .slider-btn-right:after, .page-container .main-area .slider-container .slider-btn-right:before {
+  top: 50%;
   border: solid transparent;
   content: "";
   height: 0;

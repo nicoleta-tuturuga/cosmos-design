@@ -11,11 +11,11 @@ function getResponse(response) {
 function showData(data) {
   for (var i = 0; i < data.length; i++) {
     var item = data[i];
-    getItem(item, i);
+    displayItem(item, i);
   }
 }
 
-function getItem(data, index) {
+function displayItem(data, index) {
 
   let sliderContainer = $('.slider-content-wrapper');
 
@@ -123,6 +123,8 @@ function switchDarkMode() {
   $('.main-area').toggleClass('dark-mode');
   $('.rectangle-details-text > p').toggleClass('light-mode-text');
   $('.product-description-container > p').toggleClass('light-mode-text');
+
+  $('.dark-mode-btn svg').toggleClass('hidden');
 }
 
 $(document).ready(function () {

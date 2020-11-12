@@ -4,6 +4,7 @@ $secondary-color: #6362a7;
 $light-purple: #8f8ec7;
 $light-dark: #333333;
 
+//breakpoints
 @mixin tablet {
   @media only screen and (min-width: 768px) {
     @content;
@@ -14,6 +15,17 @@ $light-dark: #333333;
   @media only screen and (min-width: 1024px) {
     @content;
   }
+}
+
+//mixins
+@mixin before-after-chevron {
+  top: 50%;
+  border: solid transparent;
+  content: "";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
 }
 
 @mixin slider-btn-chevron {
@@ -36,13 +48,14 @@ $light-dark: #333333;
 
   &:after,
   &:before {
+    @include before-after-chevron;
     // top: 50%;
-    border: solid transparent;
-    content: "";
-    height: 0;
-    width: 0;
-    position: absolute;
-    pointer-events: none;
+    // border: solid transparent;
+    // content: "";
+    // height: 0;
+    // width: 0;
+    // position: absolute;
+    // pointer-events: none;
   }
 
   &:after {
@@ -99,6 +112,7 @@ $light-dark: #333333;
   }
 }
 
+//general styles
 :root {
   font-size: 16px;
 }
@@ -116,6 +130,7 @@ body {
   }
 }
 
+//styles for dark mode
 .light-mode {
   background-color: $primary-color;
 }
@@ -131,6 +146,7 @@ body {
   background-image: linear-gradient(#101022dc, #3b3b46);
 }
 
+//scss style for the page
 .page-container {
   position: relative;
   min-height: 100vh;
@@ -147,6 +163,7 @@ body {
       font-size: 2rem;
       font-weight: bold;
       letter-spacing: -0.1125rem;
+      animation: pulse 5s infinite;
 
       span {
         font-weight: normal;
@@ -184,15 +201,26 @@ body {
       background-color: transparent;
       position: absolute;
       top: 6rem;
-      right: 0rem;
-      height: 3rem;
-      width: 3rem;
+      right: 0.5rem;
       cursor: pointer;
       border: none;
+      height: 3rem;
+      width: 3rem;
+
+      @include tablet {
+        top: 5.5rem;
+        right: 2rem;
+        height: 4rem;
+        width: 4rem;
+      }
+
+      .hidden {
+        display: none;
+      }
     }
 
     .slider-container {
-      width: 100%;
+      min-width: 24rem;
       padding: 3rem 0.5rem;
 
       @include tablet {
@@ -281,6 +309,11 @@ body {
             height: 17.7rem;
             position: relative;
 
+            &:hover {
+              transform: (scale(1.06));
+              cursor: pointer;
+            }
+
             @include desktop {
               width: 17.5rem;
               min-width: 17rem;
@@ -290,18 +323,12 @@ body {
 
             &:after,
             &:before {
-              bottom: 100%;
-              left: 50%;
-              border: solid transparent;
-              content: "";
-              height: 0;
-              width: 0;
-              position: absolute;
-              pointer-events: none;
+              right: 100%;
+              @include before-after-chevron;
             }
 
             &:after {
-              border-bottom-color: $primary-color;
+              border-right-color: $primary-color;
               border-width: 5px;
               margin-top: -5px;
 
@@ -312,7 +339,7 @@ body {
             }
 
             &:before {
-              border-bottom-color: $light-purple;
+              border-right-color: $light-purple;
               border-width: 11px;
               margin-top: -11px;
 
