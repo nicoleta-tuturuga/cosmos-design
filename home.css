@@ -13,6 +13,21 @@ body p {
   margin: 0;
 }
 
+.light-mode {
+  background-color: #ffffff;
+}
+
+.light-mode-text {
+  color: #ffffff;
+}
+
+.dark-mode {
+  background-color: #363537;
+  color: #ffffff;
+  opacity: 1;
+  background-image: linear-gradient(#101022dc, #3b3b46);
+}
+
 .page-container {
   position: relative;
   min-height: 100vh;
@@ -30,6 +45,19 @@ body p {
   font-weight: bold;
   letter-spacing: -0.1125rem;
 }
+.page-container .navbar .navbar-brand span {
+  font-weight: normal;
+}
+.page-container .navbar .navbar-toggler {
+  padding-bottom: 0;
+}
+.page-container .navbar .navbar-toggler:hover {
+  background-color: rgba(61, 61, 61, 0.671);
+}
+.page-container .navbar .navbar-toggler .navbar-toggler-icon {
+  font-size: 1.2rem;
+  color: #ffffff;
+}
 .page-container .navbar .nav-item {
   margin-right: 2rem;
   font-weight: bold;
@@ -40,6 +68,16 @@ body p {
 }
 .page-container .main-area {
   padding-bottom: 5rem;
+}
+.page-container .main-area .dark-mode-btn {
+  background-color: transparent;
+  position: absolute;
+  top: 6rem;
+  right: 0rem;
+  height: 3rem;
+  width: 3rem;
+  cursor: pointer;
+  border: none;
 }
 .page-container .main-area .slider-container {
   width: 100%;
@@ -69,7 +107,6 @@ body p {
   }
 }
 .page-container .main-area .slider-container .slider-btn-left:after, .page-container .main-area .slider-container .slider-btn-left:before {
-  top: 50%;
   border: solid transparent;
   content: "";
   height: 0;
@@ -180,8 +217,8 @@ body p {
   }
 }
 .page-container .main-area .slider-container .slider-content-wrapper .slider-wrapper .rectangle-details-container:after, .page-container .main-area .slider-container .slider-content-wrapper .slider-wrapper .rectangle-details-container:before {
-  right: 100%;
-  top: 50%;
+  bottom: 100%;
+  left: 50%;
   border: solid transparent;
   content: "";
   height: 0;
@@ -190,7 +227,7 @@ body p {
   pointer-events: none;
 }
 .page-container .main-area .slider-container .slider-content-wrapper .slider-wrapper .rectangle-details-container:after {
-  border-right-color: #ffffff;
+  border-bottom-color: #ffffff;
   border-width: 5px;
   margin-top: -5px;
 }
@@ -201,7 +238,7 @@ body p {
   }
 }
 .page-container .main-area .slider-container .slider-content-wrapper .slider-wrapper .rectangle-details-container:before {
-  border-right-color: #8f8ec7;
+  border-bottom-color: #8f8ec7;
   border-width: 11px;
   margin-top: -11px;
 }
@@ -333,7 +370,6 @@ body p {
   }
 }
 .page-container .main-area .slider-container .slider-btn-right:after, .page-container .main-area .slider-container .slider-btn-right:before {
-  top: 50%;
   border: solid transparent;
   content: "";
   height: 0;

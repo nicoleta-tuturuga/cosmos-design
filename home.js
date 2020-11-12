@@ -148,10 +148,18 @@ function showPreviuosSlide() {
     .fadeIn(500)
 }
 
+function switchDarkMode() {
+  $('.main-area').toggleClass('dark-mode');
+  $('.rectangle-details-text > p').toggleClass('light-mode-text');
+  $('.product-description-container > p').toggleClass('light-mode-text');
+}
+
 $(document).ready(function () {
 
   showData(data);
 
   $('.slider-btn-right').click(showNextSlide);
   $('.slider-btn-left').click(showPreviuosSlide);
+
+  $('.dark-mode-btn').click(switchDarkMode);
 })
