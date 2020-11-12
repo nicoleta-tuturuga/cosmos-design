@@ -4,14 +4,31 @@ $secondary-color: #6362a7;
 $light-purple: #8f8ec7;
 $light-dark: #333333;
 
+@mixin tablet {
+  @media only screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media only screen and (min-width: 1024px) {
+    @content;
+  }
+}
+
 @mixin slider-btn-chevron {
-  min-width: 5.5rem;
-  height: 5.5rem;
+  min-width: 2.5rem;
+  height: 2.5rem;
   background-color: $secondary-color;
   color: $primary-color;
   border-radius: 50%;
   border: none;
   position: relative;
+
+  @include desktop {
+    min-width: 5.5rem;
+    height: 5.5rem;
+  }
 
   &:after,
   &:before {
@@ -25,13 +42,23 @@ $light-dark: #333333;
   }
 
   &:after {
-    border-width: 10px;
-    margin-top: -10px;
+    border-width: 5px;
+    margin-top: -5px;
+
+    @include desktop {
+      border-width: 10px;
+      margin-top: -10px;
+    }
   }
 
   &:before {
-    border-width: 18px;
-    margin-top: -18px;
+    border-width: 11px;
+    margin-top: -11px;
+
+    @include desktop {
+      border-width: 18px;
+      margin-top: -18px;
+    }
   }
 }
 
@@ -42,13 +69,25 @@ $light-dark: #333333;
   background-color: #ffce22;
   color: $light-dark;
   font-weight: bold;
-  font-size: 1.3rem;
+  font-size: 1rem;
+  
+  @include desktop {
+    font-size: 1.3rem;
+  }
 }
 
 @mixin p-header-content-style {
-  font-size: 2rem;
+  font-size: 1rem;
   color: $primary-color;
   font-weight: bold;
+
+  @include tablet {
+    font-size: 1.5rem;
+  }
+
+  @include desktop {
+    font-size: 2rem;
+  }
 }
 
 :root {
@@ -102,7 +141,11 @@ body {
 
     .slider-container {
       width: 100%;
-      padding: 5rem 2rem;
+      padding: 3rem 0.5rem;
+
+      @include tablet {
+        padding: 5rem 2rem;
+      }
 
       .slider-btn-left {
         @include slider-btn-chevron;
@@ -121,86 +164,161 @@ body {
         }
       }
 
-      img {
-        min-width: 45rem;
-        height: 25rem;
-        margin: 0 2rem;
-      }
+      .slider-content-wrapper {
+        width: 100%;
 
-      .rectangle-details-container {
-        width: 17.5rem;
-        min-width: 17rem;
-        border: 8px solid $light-purple;
-        height: 25rem;
-        position: relative;
+        img {
+          min-width: 10rem;
+          height: 10rem;
+          margin: 0 0.5rem 1rem 0.5rem;
 
-        &:after,
-        &:before {
-          right: 100%;
-          top: 50%;
-          border: solid transparent;
-          content: "";
-          height: 0;
-          width: 0;
-          position: absolute;
-          pointer-events: none;
-        }
-
-        &:after {
-          border-right-color: $primary-color;
-          border-width: 20px;
-          margin-top: -20px;
-        }
-
-        &:before {
-          border-right-color: $light-purple;
-          border-width: 31px;
-          margin-top: -31px;
-        }
-
-        .rectangle-details-container-top {
-          color: $light-dark;
-          padding: 0.7rem 1.5rem;
-
-          .rectangle-details-title {
-            color: #000000;
-            font-size: 1.8rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
+          @include tablet {
+            min-width: 20rem;
+            height: 14rem;
+            margin: 0 1rem 1rem 1rem;
           }
 
-          .rectangle-details-text {
-            line-height: 1.4rem;
+          @include desktop {
+            min-width: 45rem;
+            height: 25rem;
+            margin: 0 2rem 1rem 2rem;
+          }
+        }
 
-            p:last-child {
-              margin-top: 1rem;
-              margin-bottom: 1.5rem;
+        .rectangle-details-container {
+          width: 12rem;
+          min-width: 11.5rem;
+          border: 5px solid $light-purple;
+          height: 17.7rem;
+          position: relative;
+
+          @include desktop {
+            width: 17.5rem;
+            min-width: 17rem;
+            border: 8px solid $light-purple;
+            height: 25rem;
+          }
+
+          &:after,
+          &:before {
+            right: 100%;
+            top: 50%;
+            border: solid transparent;
+            content: "";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+          }
+
+          &:after {
+            border-right-color: $primary-color;
+            border-width: 5px;
+            margin-top: -5px;
+
+            @include desktop {
+              border-width: 20px;
+              margin-top: -20px;
             }
           }
-        }
 
-        .rectangle-details-container-bottom {
-          background-color: $secondary-color;
-          color: $primary-color;
-          padding: 1rem;
-          line-height: 2rem;
+          &:before {
+            border-right-color: $light-purple;
+            border-width: 11px;
+            margin-top: -11px;
 
-          .rectangle-details-price {
-            font-size: 2.3rem;
-            font-weight: bold;
-            margin-bottom: 0;
+            @include desktop {
+              border-width: 31px;
+              margin-top: -31px;
+            }
           }
 
-          .rectangle-details-btn {
-            width: 8rem;
-            height: 2.5rem;
-            @include order-btn;
+          .rectangle-details-container-top {
+            color: $light-dark;
+            padding: 0.2rem 0.4rem;
+
+            @include desktop {
+              padding: 0.7rem 1.5rem;
+            }
+
+            .rectangle-details-title {
+              color: #000000;
+              font-size: 1.2rem;
+              font-weight: bold;
+              margin-bottom: 0.3rem;
+              
+              @include desktop {
+                font-size: 1.8rem;
+                margin-bottom: 0.5rem;
+              }
+            }
+
+            .rectangle-details-text {
+              line-height: 1.2rem;
+              font-size: 0.7rem;
+              
+              @include desktop {
+                line-height: 1.4rem;
+                font-size: 1rem;
+              }
+
+              p:last-child {
+                margin-top: 0.3rem;
+                margin-bottom: 0.5rem;
+                
+                @include desktop {
+                  margin-top: 1rem;
+                  margin-bottom: 1.5rem;
+                }
+              }
+            }
+          }
+
+          .rectangle-details-container-bottom {
+            background-color: $secondary-color;
+            color: $primary-color;
+            padding: 0.5rem;
+            line-height: 1.8rem;
+            
+            @include desktop {
+              padding: 1rem;
+              line-height: 2rem;
+            }
+
+            .rectangle-details-price {
+              font-size: 1.8rem;
+              font-weight: bold;
+              margin-bottom: 0;
+              
+              @include desktop {
+                font-size: 2.3rem;
+              }
+            }
+
+            .rectangle-details-btn {
+              width: 5rem;
+              height: 2rem;
+              @include order-btn;
+              
+              @include desktop {
+                width: 8rem;
+                height: 2.5rem;
+              }
+            }
           }
         }
       }
 
       .slider-btn-right {
-        margin-left: 2rem;
+        margin-left: 0.5rem;
+
+        @include tablet {
+          margin-left: 1rem;
+        }
+
+        @include desktop {
+          margin-left: 0;
+        }
 
         @include slider-btn-chevron;
 
@@ -222,7 +340,11 @@ body {
     .page-content-container {
       .page-content-header {
         background-color: $secondary-color;
-        padding: 3rem;
+        padding: 1.5rem;
+
+        @include desktop {
+          padding: 3rem;
+        }
 
         .page-content-header-list {
           list-style-type: none;
@@ -230,15 +352,26 @@ body {
           margin: 0;
 
           .page-content-header-list-item {
-            margin-left: 4rem;
-            margin-right: 4rem;
+            margin: 0 4rem 1rem 4rem;
             display: flex;
             flex-direction: column;
             align-items: center;
 
+            @include desktop {
+              margin: 0 4rem 0 4rem;
+            }
+
             > i {
-              font-size: 5rem;
+              font-size: 2.5rem;
               margin-bottom: 1rem;
+              
+              @include tablet {
+                font-size: 4rem;
+              }
+
+              @include desktop {
+                font-size: 5rem;
+              }
             }
 
             .fa-suitcase {
@@ -263,24 +396,44 @@ body {
       > p {
         @include p-header-content-style;
         background-color: $light-purple;
-        padding: 1rem 10rem;
+        padding: 1rem 3rem;
+        
+        @include desktop {
+          padding: 1rem 10rem;
+        }
       }
 
       .product-description-container {
         color: $light-dark;
-        width: 62rem;
-        height: 41rem;
-        padding: 5rem 10rem;
+        padding: 2rem 3rem;
+        min-width: 20rem;
+        
+        @include tablet {
+          width: 37rem;
+        }
+
+        @include desktop {
+          padding: 5rem 10rem;
+          width: 62rem;
+        }
 
         .spacer {
           height: 1rem;
         }
 
         .product-description-btn {
-          margin-top: 5rem;
-          width: 13.5rem;
-          height: 3.5rem;
+          margin-top: 3rem;
+          margin-bottom: 2rem;
+          width: 8.5rem;
+          height: 2.5rem;
           @include order-btn;
+          
+          @include desktop {
+            margin-top: 5rem;
+            margin-bottom: 0;
+            width: 13.5rem;
+            height: 3.5rem;
+          }
         }
       }
     }
