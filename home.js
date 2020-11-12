@@ -2,55 +2,78 @@ const data = [
   {
     "id": 1,
     "img": "https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1087&q=80",
-    "imgTitle": "hi",
-    "rectangleTitle": "Enceladus",
-    "rectangleParagraph1": "is the sixth-largest moon of Saturn. It is about a tenth of Saturn's largest moon, Titan.",
-    "rectangleParagraph2": "Explore this amazing cosmic marvel in a safe and fast trip with our aerospace company.",
-    "rectanglePrice": "999.990 €",
-    "rectangleDetails": "one way ticket"
+    "planetTitle": "ENCELADUS",
+    "belongsTo": "The Saturn System",
+    "distance": "9.5 AU",
+    "population": "3920",
+    "text1": "is the sixth-largest moon of Saturn. It is about a tenth of Saturn's largest moon, Titan.",
+    "text2": "Explore this amazing cosmic marvel in a safe and fast trip with our aerospace company.",
+    "ticketPrice": "999.990 €",
+    "ticketDetails": "one way ticket"
   },
   {
     "id": 2,
     "img": "https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
-    "imgTitle": "hello",
-    "rectangleTitle": "Stars",
-    "rectangleParagraph1": "is the sixth-largest moon of Saturn. It is about a tenth of Saturn's largest moon, Titan.",
-    "rectangleParagraph2": "Explore this amazing cosmic marvel in a safe and fast trip with our aerospace company.",
-    "rectanglePrice": "89.290 €",
-    "rectangleDetails": "one way ticket"
+    "planetTitle": "STARS",
+    "belongsTo": "The Stars",
+    "distance": "150 AU",
+    "population": "5000",
+    "text1": "is the sixth-largest moon of Saturn. It is about a tenth of Saturn's largest moon, Titan.",
+    "text2": "Explore this amazing cosmic marvel in a safe and fast trip with our aerospace company.",
+    "ticketPrice": "799.130 €",
+    "ticketDetails": "one way ticket"
   },
   {
     "id": 3,
     "img": "https://images.unsplash.com/photo-1548284706-24b96b23d6d8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80",
-    "imgTitle": "good",
-    "rectangleTitle": "Moon",
-    "rectangleParagraph1": "is the sixth-largest moon of Saturn. It is about a tenth of Saturn's largest moon, Titan.",
-    "rectangleParagraph2": "Explore this amazing cosmic marvel in a safe and fast trip with our aerospace company.",
-    "rectanglePrice": "290.780 €",
-    "rectangleetails": "two way ticket"
+    "planetTitle": "MOON",
+    "belongsTo": "The Moon",
+    "distance": "50 AU",
+    "population": "0",
+    "text1": "is the sixth-largest moon of Saturn. It is about a tenth of Saturn's largest moon, Titan.",
+    "text2": "Explore this amazing cosmic marvel in a safe and fast trip with our aerospace company.",
+    "ticketPrice": "199.160 €",
+    "ticketDetails": "two way ticket"
   }
 ]
 
 function showData(data) {
-  console.log(data)
   for (var i = 0; i < data.length; i++) {
     var item = data[i];
-    getItem(item,i);
+    getItem(item, i);
   }
 }
 
-function getItem(data,index) {
+function getItem(data, index) {
 
   let sliderContainer = $('.slider-content-wrapper');
-  
+
   let sliderWrapperItem = $('<div/>', {
-    class: 'slider-wrapper',
-    style:index!=0?"display:none":""
+    id: data.id,
+    "class": 'slider-wrapper',
+    style: index != 0 ? "display:none" : ""
   });
-  
+  let sliderImgWrapper = $('<div/>', {
+    "class": 'slider-img-wrapper'
+  });
   let itemImg = $('<img/>', {
     src: data.img,
-    alt: data.rectangleTitle
+    alt: data.planetTitle
+  });
+  let imgText = $('<div/>', {
+    "class": 'img-text-container'
+  });
+  let planetTitle = $('<p/>', {
+    text: data.planetTitle
+  });
+  let system = $('<p/>', {
+    text: data.belongsTo
+  });
+  let distance = $('<p/>', {
+    text: 'Distance: ' + data.distance
+  });
+  let population = $('<p/>', {
+    text: 'Population: ' + data.population
   });
   let rectangleContainer = $('<div/>', {
     "class": 'rectangle-details-container'
@@ -60,26 +83,26 @@ function getItem(data,index) {
   });
   let rectangleTitle = $('<p/>', {
     "class": 'rectangle-details-title',
-    text: data.rectangleTitle
+    text: data.planetTitle
   });
   let rectangleDetailsText = $('<div/>', {
     "class": 'rectangle-details-text'
   });
   let paragraph1 = $('<p/>', {
-    text: data.rectangleParagraph1
+    text: data.text1
   });
   let paragraph2 = $('<p/>', {
-    text: data.rectangleParagraph2
+    text: data.text2
   });
   let rectangleContainerBottom = $('<div/>', {
     "class": 'rectangle-details-container-bottom'
   });
   let rectanglePrice = $('<p/>', {
     "class": 'rectangle-details-price',
-    text: data.rectanglePrice
+    text: data.ticketPrice
   });
   let rectangleDetails = $('<p/>', {
-    text: data.rectangleDetails
+    text: data.ticketDetails
   });
   let rectangleDetailsBtn = $('<button/>', {
     "class": 'rectangle-details-btn',
@@ -87,7 +110,13 @@ function getItem(data,index) {
   })
 
   sliderWrapperItem.appendTo(sliderContainer);
-  itemImg.appendTo(sliderWrapperItem);
+  sliderImgWrapper.appendTo(sliderWrapperItem);
+  itemImg.appendTo(sliderImgWrapper);
+  imgText.appendTo(sliderImgWrapper);
+  planetTitle.appendTo(imgText);
+  system.appendTo(imgText);
+  distance.appendTo(imgText);
+  population.appendTo(imgText);
   rectangleContainer.appendTo(sliderWrapperItem);
   rectangleContainerTop.appendTo(rectangleContainer);
   rectangleTitle.appendTo(rectangleContainerTop);
@@ -101,15 +130,22 @@ function getItem(data,index) {
 }
 
 function showNextSlide() {
-  console.log('NEXT');
-  console.log($('.slider-content-wrapper > .slider-wrapper:first-child'));
-  jQuery('.slider-content-wrapper > .slider-wrapper:first-child')
-    .fadeOut(1000)
+  $('.slider-content-wrapper > .slider-wrapper:first-child')
+    .fadeOut(500)
     .next()
-    .fadeIn(1000)
+    .delay(500)
+    .fadeIn(500)
     .end()
     .appendTo('.slider-content-wrapper');
+}
 
+function showPreviuosSlide() {
+  $('.slider-content-wrapper > .slider-wrapper:first-child')
+    .fadeOut(500)
+  $('.slider-content-wrapper > .slider-wrapper:last-child')
+    .prependTo(".slider-content-wrapper")
+    .delay(500)
+    .fadeIn(500)
 }
 
 $(document).ready(function () {
@@ -117,5 +153,5 @@ $(document).ready(function () {
   showData(data);
 
   $('.slider-btn-right').click(showNextSlide);
-
+  $('.slider-btn-left').click(showPreviuosSlide);
 })

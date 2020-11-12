@@ -59,6 +59,9 @@ body p {
   border: none;
   position: relative;
 }
+.page-container .main-area .slider-container .slider-btn-left:hover {
+  transform: scale(1.1);
+}
 @media only screen and (min-width: 1024px) {
   .page-container .main-area .slider-container .slider-btn-left {
     min-width: 5.5rem;
@@ -103,32 +106,63 @@ body p {
 .page-container .main-area .slider-container .slider-btn-left:before {
   border-right-color: #ffffff;
 }
-.page-container .main-area .slider-container .slider-content-wrapper {
-  width: 100%;
-}
 .page-container .main-area .slider-container .slider-content-wrapper .slider-wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-.page-container .main-area .slider-container .slider-content-wrapper .slider-wrapper img {
-  min-width: 10rem;
-  height: 10rem;
+.page-container .main-area .slider-container .slider-content-wrapper .slider-wrapper .slider-img-wrapper {
+  position: relative;
   margin: 0 0.5rem 1rem 0.5rem;
 }
 @media only screen and (min-width: 768px) {
-  .page-container .main-area .slider-container .slider-content-wrapper .slider-wrapper img {
-    min-width: 20rem;
-    height: 14rem;
+  .page-container .main-area .slider-container .slider-content-wrapper .slider-wrapper .slider-img-wrapper {
     margin: 0 1rem 1rem 1rem;
   }
 }
 @media only screen and (min-width: 1024px) {
-  .page-container .main-area .slider-container .slider-content-wrapper .slider-wrapper img {
-    min-width: 45rem;
-    height: 25rem;
+  .page-container .main-area .slider-container .slider-content-wrapper .slider-wrapper .slider-img-wrapper {
     margin: 0 2rem 1rem 2rem;
   }
+}
+.page-container .main-area .slider-container .slider-content-wrapper .slider-wrapper .slider-img-wrapper img {
+  min-width: 10rem;
+  height: 10rem;
+}
+@media only screen and (min-width: 768px) {
+  .page-container .main-area .slider-container .slider-content-wrapper .slider-wrapper .slider-img-wrapper img {
+    min-width: 20rem;
+    height: 14rem;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .page-container .main-area .slider-container .slider-content-wrapper .slider-wrapper .slider-img-wrapper img {
+    min-width: 45rem;
+    height: 25rem;
+  }
+}
+.page-container .main-area .slider-container .slider-content-wrapper .slider-wrapper .slider-img-wrapper .img-text-container {
+  color: #ffffff;
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  width: 6rem;
+  font-size: 0.5rem;
+  line-height: 0.8rem;
+  display: flex;
+  flex-direction: column;
+}
+@media only screen and (min-width: 768px) {
+  .page-container .main-area .slider-container .slider-content-wrapper .slider-wrapper .slider-img-wrapper .img-text-container {
+    top: 1rem;
+    left: 1rem;
+    width: 10rem;
+    font-size: 1.1rem;
+    line-height: normal;
+  }
+}
+.page-container .main-area .slider-container .slider-content-wrapper .slider-wrapper .slider-img-wrapper .img-text-container p:first-child {
+  font-weight: bold;
 }
 .page-container .main-area .slider-container .slider-content-wrapper .slider-wrapper .rectangle-details-container {
   width: 12rem;
@@ -254,6 +288,10 @@ body p {
   font-weight: bold;
   font-size: 1rem;
 }
+.page-container .main-area .slider-container .slider-content-wrapper .slider-wrapper .rectangle-details-container .rectangle-details-container-bottom .rectangle-details-btn:hover {
+  background-color: #fcc154;
+  transform: scale(1.1);
+}
 @media only screen and (min-width: 1024px) {
   .page-container .main-area .slider-container .slider-content-wrapper .slider-wrapper .rectangle-details-container .rectangle-details-container-bottom .rectangle-details-btn {
     font-size: 1.3rem;
@@ -284,6 +322,9 @@ body p {
   .page-container .main-area .slider-container .slider-btn-right {
     margin-left: 0;
   }
+}
+.page-container .main-area .slider-container .slider-btn-right:hover {
+  transform: scale(1.1);
 }
 @media only screen and (min-width: 1024px) {
   .page-container .main-area .slider-container .slider-btn-right {
@@ -445,6 +486,10 @@ body p {
   color: #333333;
   font-weight: bold;
   font-size: 1rem;
+}
+.page-container .main-area .page-content-container .product-description-container .product-description-btn:hover {
+  background-color: #fcc154;
+  transform: scale(1.1);
 }
 @media only screen and (min-width: 1024px) {
   .page-container .main-area .page-content-container .product-description-container .product-description-btn {

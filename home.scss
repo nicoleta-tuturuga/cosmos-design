@@ -25,6 +25,10 @@ $light-dark: #333333;
   border: none;
   position: relative;
 
+  &:hover {
+    transform: scale(1.1);
+  }
+
   @include desktop {
     min-width: 5.5rem;
     height: 5.5rem;
@@ -70,6 +74,11 @@ $light-dark: #333333;
   color: $light-dark;
   font-weight: bold;
   font-size: 1rem;
+
+  &:hover {
+    background-color: #fcc154;
+    transform: scale(1.1);
+  }
 
   @include desktop {
     font-size: 1.3rem;
@@ -165,28 +174,60 @@ body {
       }
 
       .slider-content-wrapper {
-        width: 100%;
-
         .slider-wrapper {
           display: flex;
           flex-wrap: wrap;
           justify-content: center;
 
-          img {
-            min-width: 10rem;
-            height: 10rem;
+          .slider-img-wrapper {
+            position: relative;
             margin: 0 0.5rem 1rem 0.5rem;
 
             @include tablet {
-              min-width: 20rem;
-              height: 14rem;
               margin: 0 1rem 1rem 1rem;
             }
 
             @include desktop {
-              min-width: 45rem;
-              height: 25rem;
               margin: 0 2rem 1rem 2rem;
+            }
+
+            img {
+              min-width: 10rem;
+              height: 10rem;
+
+              @include tablet {
+                min-width: 20rem;
+                height: 14rem;
+              }
+
+              @include desktop {
+                min-width: 45rem;
+                height: 25rem;
+              }
+            }
+
+            .img-text-container {
+              color: $primary-color;
+              position: absolute;
+              top: 0.5rem;
+              left: 0.5rem;
+              width: 6rem;
+              font-size: 0.5rem;
+              line-height: 0.8rem;
+              display: flex;
+              flex-direction: column;
+
+              @include tablet {
+                top: 1rem;
+                left: 1rem;
+                width: 10rem;
+                font-size: 1.1rem;
+                line-height: normal;
+              }
+
+              p:first-child {
+                font-weight: bold;
+              }
             }
           }
 
