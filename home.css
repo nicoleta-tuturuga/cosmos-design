@@ -172,7 +172,7 @@ body p {
 }
 @media only screen and (min-width: 1024px) {
   .page-container .main-area .slider-container .slider-content-wrapper .slider-wrapper .slider-img-wrapper {
-    margin: 0 2rem 1rem 2rem;
+    margin: 0 2rem 0 2rem;
   }
 }
 .page-container .main-area .slider-container .slider-content-wrapper .slider-wrapper .slider-img-wrapper img {
@@ -218,7 +218,6 @@ body p {
   width: 12rem;
   min-width: 11.5rem;
   border: 5px solid #8f8ec7;
-  height: 17.7rem;
   position: relative;
 }
 .page-container .main-area .slider-container .slider-content-wrapper .slider-wrapper .rectangle-details-container:hover {
@@ -230,7 +229,6 @@ body p {
     width: 17.5rem;
     min-width: 17rem;
     border: 8px solid #8f8ec7;
-    height: 25rem;
   }
 }
 .page-container .main-area .slider-container .slider-content-wrapper .slider-wrapper .rectangle-details-container:after, .page-container .main-area .slider-container .slider-content-wrapper .slider-wrapper .rectangle-details-container:before {

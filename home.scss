@@ -49,13 +49,6 @@ $light-dark: #333333;
   &:after,
   &:before {
     @include before-after-chevron;
-    // top: 50%;
-    // border: solid transparent;
-    // content: "";
-    // height: 0;
-    // width: 0;
-    // position: absolute;
-    // pointer-events: none;
   }
 
   &:after {
@@ -259,7 +252,7 @@ body {
             }
 
             @include desktop {
-              margin: 0 2rem 1rem 2rem;
+              margin: 0 2rem 0 2rem;
             }
 
             img {
@@ -306,7 +299,6 @@ body {
             width: 12rem;
             min-width: 11.5rem;
             border: 5px solid $light-purple;
-            height: 17.7rem;
             position: relative;
 
             &:hover {
@@ -318,7 +310,6 @@ body {
               width: 17.5rem;
               min-width: 17rem;
               border: 8px solid $light-purple;
-              height: 25rem;
             }
 
             &:after,
