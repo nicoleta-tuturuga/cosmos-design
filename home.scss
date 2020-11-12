@@ -70,7 +70,7 @@ $light-dark: #333333;
   color: $light-dark;
   font-weight: bold;
   font-size: 1rem;
-  
+
   @include desktop {
     font-size: 1.3rem;
   }
@@ -167,142 +167,151 @@ body {
       .slider-content-wrapper {
         width: 100%;
 
-        img {
-          min-width: 10rem;
-          height: 10rem;
-          margin: 0 0.5rem 1rem 0.5rem;
+        .slider-wrapper {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
 
-          @include tablet {
-            min-width: 20rem;
-            height: 14rem;
-            margin: 0 1rem 1rem 1rem;
-          }
+          img {
+            min-width: 10rem;
+            height: 10rem;
+            margin: 0 0.5rem 1rem 0.5rem;
 
-          @include desktop {
-            min-width: 45rem;
-            height: 25rem;
-            margin: 0 2rem 1rem 2rem;
-          }
-        }
-
-        .rectangle-details-container {
-          width: 12rem;
-          min-width: 11.5rem;
-          border: 5px solid $light-purple;
-          height: 17.7rem;
-          position: relative;
-
-          @include desktop {
-            width: 17.5rem;
-            min-width: 17rem;
-            border: 8px solid $light-purple;
-            height: 25rem;
-          }
-
-          &:after,
-          &:before {
-            right: 100%;
-            top: 50%;
-            border: solid transparent;
-            content: "";
-            height: 0;
-            width: 0;
-            position: absolute;
-            pointer-events: none;
-          }
-
-          &:after {
-            border-right-color: $primary-color;
-            border-width: 5px;
-            margin-top: -5px;
+            @include tablet {
+              min-width: 20rem;
+              height: 14rem;
+              margin: 0 1rem 1rem 1rem;
+            }
 
             @include desktop {
-              border-width: 20px;
-              margin-top: -20px;
+              min-width: 45rem;
+              height: 25rem;
+              margin: 0 2rem 1rem 2rem;
             }
           }
 
-          &:before {
-            border-right-color: $light-purple;
-            border-width: 11px;
-            margin-top: -11px;
+          .rectangle-details-container {
+            width: 12rem;
+            min-width: 11.5rem;
+            border: 5px solid $light-purple;
+            height: 17.7rem;
+            position: relative;
 
             @include desktop {
-              border-width: 31px;
-              margin-top: -31px;
-            }
-          }
-
-          .rectangle-details-container-top {
-            color: $light-dark;
-            padding: 0.2rem 0.4rem;
-
-            @include desktop {
-              padding: 0.7rem 1.5rem;
+              width: 17.5rem;
+              min-width: 17rem;
+              border: 8px solid $light-purple;
+              height: 25rem;
             }
 
-            .rectangle-details-title {
-              color: #000000;
-              font-size: 1.2rem;
-              font-weight: bold;
-              margin-bottom: 0.3rem;
-              
+            &:after,
+            &:before {
+              right: 100%;
+              top: 50%;
+              border: solid transparent;
+              content: "";
+              height: 0;
+              width: 0;
+              position: absolute;
+              pointer-events: none;
+            }
+
+            &:after {
+              border-right-color: $primary-color;
+              border-width: 5px;
+              margin-top: -5px;
+
               @include desktop {
-                font-size: 1.8rem;
-                margin-bottom: 0.5rem;
+                border-width: 20px;
+                margin-top: -20px;
               }
             }
 
-            .rectangle-details-text {
-              line-height: 1.2rem;
-              font-size: 0.7rem;
-              
+            &:before {
+              border-right-color: $light-purple;
+              border-width: 11px;
+              margin-top: -11px;
+
               @include desktop {
-                line-height: 1.4rem;
-                font-size: 1rem;
+                border-width: 31px;
+                margin-top: -31px;
+              }
+            }
+
+            .rectangle-details-container-top {
+              color: $light-dark;
+              padding: 0.2rem 0.4rem;
+
+              @include desktop {
+                padding: 0.7rem 1.5rem;
               }
 
-              p:last-child {
-                margin-top: 0.3rem;
-                margin-bottom: 0.5rem;
-                
+              .rectangle-details-title {
+                color: #000000;
+                font-size: 1.2rem;
+                font-weight: bold;
+                margin-bottom: 0.3rem;
+
                 @include desktop {
-                  margin-top: 1rem;
-                  margin-bottom: 1.5rem;
+                  font-size: 1.8rem;
+                  margin-bottom: 0.5rem;
+                }
+              }
+
+              .rectangle-details-text {
+                line-height: 1.2rem;
+                font-size: 0.7rem;
+
+                @include desktop {
+                  line-height: 1.4rem;
+                  font-size: 1rem;
+                }
+
+                p:last-child {
+                  margin-top: 0.3rem;
+                  margin-bottom: 0.5rem;
+
+                  @include desktop {
+                    margin-top: 1rem;
+                    margin-bottom: 1.5rem;
+                  }
                 }
               }
             }
-          }
 
-          .rectangle-details-container-bottom {
-            background-color: $secondary-color;
-            color: $primary-color;
-            padding: 0.5rem;
-            line-height: 1.8rem;
-            
-            @include desktop {
-              padding: 1rem;
-              line-height: 2rem;
-            }
+            .rectangle-details-container-bottom {
+              background-color: $secondary-color;
+              color: $primary-color;
+              padding: 0.5rem;
+              line-height: 1.8rem;
+              display: flex;
+              flex-direction: column;
 
-            .rectangle-details-price {
-              font-size: 1.8rem;
-              font-weight: bold;
-              margin-bottom: 0;
-              
               @include desktop {
-                font-size: 2.3rem;
+                padding: 1rem;
+                line-height: 2rem;
               }
-            }
 
-            .rectangle-details-btn {
-              width: 5rem;
-              height: 2rem;
-              @include order-btn;
-              
-              @include desktop {
-                width: 8rem;
-                height: 2.5rem;
+              .rectangle-details-price {
+                font-size: 1.8rem;
+                font-weight: bold;
+                margin-bottom: 0;
+
+                @include desktop {
+                  font-size: 2.3rem;
+                }
+              }
+
+              .rectangle-details-btn {
+                width: 5rem;
+                height: 2rem;
+                align-self: flex-end;
+                @include order-btn;
+
+                @include desktop {
+                  width: 8rem;
+                  height: 2.5rem;
+                }
               }
             }
           }
@@ -364,7 +373,7 @@ body {
             > i {
               font-size: 2.5rem;
               margin-bottom: 1rem;
-              
+
               @include tablet {
                 font-size: 4rem;
               }
@@ -397,7 +406,7 @@ body {
         @include p-header-content-style;
         background-color: $light-purple;
         padding: 1rem 3rem;
-        
+
         @include desktop {
           padding: 1rem 10rem;
         }
@@ -407,7 +416,7 @@ body {
         color: $light-dark;
         padding: 2rem 3rem;
         min-width: 20rem;
-        
+
         @include tablet {
           width: 37rem;
         }
@@ -427,7 +436,7 @@ body {
           width: 8.5rem;
           height: 2.5rem;
           @include order-btn;
-          
+
           @include desktop {
             margin-top: 5rem;
             margin-bottom: 0;
