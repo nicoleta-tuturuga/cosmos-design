@@ -72,6 +72,36 @@ $light-dark: #333333;
   }
 }
 
+@mixin slider-btn-chevron-left {
+  &:after,
+  &:before {
+    right: 45%;
+  }
+
+  &:after {
+    border-right-color: $secondary-color;
+  }
+
+  &:before {
+    border-right-color: $primary-color;
+  }
+}
+
+@mixin slider-btn-chevron-right {
+  &:after,
+  &:before {
+    left: 45%;
+  }
+
+  &:after {
+    border-left-color: $secondary-color;
+  }
+
+  &:before {
+    border-left-color: $primary-color;
+  }
+}
+
 @mixin order-btn {
   border-radius: 3px;
   border: none;
@@ -156,7 +186,11 @@ body {
       font-size: 2rem;
       font-weight: bold;
       letter-spacing: -0.1125rem;
-      animation: pulse 5s infinite;
+      animation-name: stretch;
+      animation-duration: 2s;
+      animation-timing-function: ease-out;
+      animation-direction: alternate;
+      animation-iteration-count: 3;
 
       span {
         font-weight: normal;
@@ -193,12 +227,13 @@ body {
     .dark-mode-btn {
       background-color: transparent;
       position: absolute;
-      top: 6rem;
+      top: 7rem;
       right: 0.5rem;
       cursor: pointer;
       border: none;
       height: 3rem;
       width: 3rem;
+      z-index: 1;
 
       @include tablet {
         top: 5.5rem;
@@ -213,32 +248,32 @@ body {
     }
 
     .slider-container {
-      min-width: 24rem;
-      padding: 3rem 0.5rem;
+      min-width: 20rem;
+      padding: 3rem 0.5rem 5rem 0.5rem;
+      animation-duration: 3s;
+      animation-name: slidein;
+      position: relative;
 
       @include tablet {
         padding: 5rem 2rem;
       }
 
       .slider-btn-left {
+        display: none;
         @include slider-btn-chevron;
 
-        &:after,
-        &:before {
-          right: 45%;
-        }
+        @include slider-btn-chevron-left;
 
-        &:after {
-          border-right-color: $secondary-color;
-        }
-
-        &:before {
-          border-right-color: $primary-color;
+        @include tablet {
+          display: block;
         }
       }
 
       .slider-content-wrapper {
+        width: 100%;
+
         .slider-wrapper {
+          width: 100%;
           display: flex;
           flex-wrap: wrap;
           justify-content: center;
@@ -256,11 +291,9 @@ body {
             }
 
             img {
-              min-width: 10rem;
-              height: 10rem;
+              width: 20rem;
 
               @include tablet {
-                min-width: 20rem;
                 height: 14rem;
               }
 
@@ -296,14 +329,19 @@ body {
           }
 
           .rectangle-details-container {
-            width: 12rem;
-            min-width: 11.5rem;
+            width: 17rem;
+            min-width: 15rem;
             border: 5px solid $light-purple;
             position: relative;
 
             &:hover {
               transform: (scale(1.06));
               cursor: pointer;
+            }
+
+            @include tablet {
+              width: 12rem;
+              min-width: 11.5rem;
             }
 
             @include desktop {
@@ -341,15 +379,18 @@ body {
             }
 
             .rectangle-details-container-top {
-              color: $light-dark;
               padding: 0.2rem 0.4rem;
+
+              @include tablet {
+                height: auto;
+                overflow: visible;
+              }
 
               @include desktop {
                 padding: 0.7rem 1.5rem;
               }
 
               .rectangle-details-title {
-                color: #000000;
                 font-size: 1.2rem;
                 font-weight: bold;
                 margin-bottom: 0.3rem;
@@ -361,6 +402,7 @@ body {
               }
 
               .rectangle-details-text {
+                color: $light-dark;
                 line-height: 1.2rem;
                 font-size: 0.7rem;
 
@@ -406,8 +448,8 @@ body {
 
               .rectangle-details-btn {
                 width: 5rem;
-                height: 2rem;
                 align-self: flex-end;
+
                 @include order-btn;
 
                 @include desktop {
@@ -421,10 +463,11 @@ body {
       }
 
       .slider-btn-right {
-        margin-left: 0.5rem;
+        display: none;
 
         @include tablet {
           margin-left: 1rem;
+          display: block;
         }
 
         @include desktop {
@@ -433,17 +476,37 @@ body {
 
         @include slider-btn-chevron;
 
-        &:after,
-        &:before {
-          left: 45%;
-        }
+        @include slider-btn-chevron-right;
+      }
 
-        &:after {
-          border-left-color: $secondary-color;
-        }
+      .mobile-sliders-container {
+        div {
+          position: absolute;
+          bottom: 1rem;
+          left: 38%;
+          display: block;
 
-        &:before {
-          border-left-color: $primary-color;
+          @include tablet {
+            display: none;
+          }
+
+          .mobile-slider {
+            margin-right: 1rem;
+
+            @include slider-btn-chevron;
+
+            @include tablet {
+              display: none;
+            }
+          }
+
+          .mobile-slider-left {
+            @include slider-btn-chevron-left;
+          }
+
+          .mobile-slider-right {
+            @include slider-btn-chevron-right;
+          }
         }
       }
     }
@@ -475,6 +538,11 @@ body {
             > i {
               font-size: 2.5rem;
               margin-bottom: 1rem;
+
+              &:hover {
+                transform: scale(1.2);
+                cursor: pointer;
+              }
 
               @include tablet {
                 font-size: 4rem;
@@ -518,6 +586,7 @@ body {
         color: $light-dark;
         padding: 2rem 3rem;
         min-width: 20rem;
+        cursor: pointer;
 
         @include tablet {
           width: 37rem;
@@ -558,5 +627,27 @@ body {
     position: absolute;
     bottom: 0;
     width: 100%;
+  }
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+@keyframes stretch {
+  0% {
+    transform: scale(0.5);
+  }
+
+  100% {
+    transform: scale(1.1);
   }
 }

@@ -1,7 +1,7 @@
 function getDataFromServer() {
   fetch('https://run.mocky.io/v3/37abd45d-62fe-493f-92c6-d799b162a201')
-  .then(getResponse)
-  .then(showData)
+    .then(getResponse)
+    .then(showData)
 }
 
 function getResponse(response) {
@@ -123,8 +123,16 @@ function switchDarkMode() {
   $('.main-area').toggleClass('dark-mode');
   $('.rectangle-details-text > p').toggleClass('light-mode-text');
   $('.product-description-container > p').toggleClass('light-mode-text');
+  $('.rectangle-details-title').toggleClass('light-mode-text');
 
   $('.dark-mode-btn svg').toggleClass('hidden');
+}
+
+function hideProductDescriptionContainerText() {
+  $('.product-description-container').click(function (event) {
+    $(this).find('.hide-description').slideToggle(500)
+    event.stopPropagation();
+  });
 }
 
 $(document).ready(function () {
@@ -133,6 +141,8 @@ $(document).ready(function () {
 
   $('.slider-btn-right').click(showNextSlide);
   $('.slider-btn-left').click(showPreviuosSlide);
-
+  $('.mobile-slider-left').click(showNextSlide);
+  $('.mobile-slider-right').click(showPreviuosSlide);
   $('.dark-mode-btn').click(switchDarkMode);
+  hideProductDescriptionContainerText();
 })
